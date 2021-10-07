@@ -10,16 +10,17 @@ namespace ORFU21_Application_Stas
     {
         static void Main(string[] args)
         {
+            //List<string> warehouseList = new List<string>();
             //List<string> baseMaterialList = new List<string>() { "Wood", "Steel", "Glass", "Rubber" };
 
             while (true)
             {
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("------------Magiska Fabriken------------\n");
 
                 Console.WriteLine("Currently your warehouse holds:");
                 Warehouse showWarehouse = new Warehouse();
-                showWarehouse.WarehouseList();
+                showWarehouse.InventoryList();
 
                 Warehouse addMaterialType = new Warehouse();
                 addMaterialType.AddMaterialType();
@@ -30,7 +31,7 @@ namespace ORFU21_Application_Stas
                 int num = Convert.ToInt32(Console.ReadLine());
 
                 Warehouse addNewMaterialToList = new Warehouse();
-                addNewMaterialToList.AddNewMaterial(typ, num);
+                addNewMaterialToList.AddNewMaterial();
 
                 //Console.WriteLine("\nWhat Material Do you want to add?");
                 //Warehouse showMaterials = new Warehouse();

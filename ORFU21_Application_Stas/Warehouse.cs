@@ -6,31 +6,46 @@ using System.Threading.Tasks;
 
 namespace ORFU21_Application_Stas
 {
-    class Warehouse
+    class Warehouse : DB
     {
-        public List<string> warehouseList = new List<string>() { };
-        public List<string> baseMaterialList = new List<string>() { "Wood", "Steel", "Glass", "Rubber" };
-    public void WarehouseList()
+        //public List<string> warehouseList = new List<string>() { "Wood" };
+        
+
+        DB DBClass = new DB();
+
+        public void GetList() //Simple getlist
         {
-            for (int i = 0; i < warehouseList.Count; i++)
+            List<string> calledList = DBClass.GetInventory();
+        }
+
+        public void InventoryList()
+        {
+            List<string> calledList = DBClass.GetInventory();
+
+            for (int i = 0; i < calledList.Count; i++)
             {
-                Console.WriteLine($"{warehouseList[i]}");
+                Console.WriteLine($"{calledList[i]}");
             }
         }
+
         public void BaseMaterialList()
         {
-            for (int i = 0; i < baseMaterialList.Count; i++)
+            List<string> calledList = DBClass.GetBaseMaterial();
+
+            for (int i = 0; i < calledList.Count; i++)
             {
-                Console.WriteLine($"[{i+1}] {baseMaterialList[i]}");
+                Console.WriteLine($"[{i+1}] {calledList[i]}");
             }
         }
-        
+
         public void AddMaterialType()
         {
+            List<string> calledList = DBClass.GetBaseMaterial();
+
             Console.WriteLine("\nWhat Material Do you want to add?");
-            for (int i = 0; i < baseMaterialList.Count; i++)
+            for (int i = 0; i < calledList.Count; i++)
             {
-                Console.WriteLine($"[{i + 1}] {baseMaterialList[i]}");
+                Console.WriteLine($"[{i + 1}] {calledList[i]}");
             }
         }
 
@@ -39,11 +54,16 @@ namespace ORFU21_Application_Stas
             Console.WriteLine("\nHow Many?");
         }
 
-        public void AddNewMaterial(int baseMaterialAmountInput, int baseMaterialInput)
+        public void AddNewMaterial()
         {
-            for (int i = 0; i < baseMaterialAmountInput; i++)
+            List<string> calledList = DBClass.GetInventory();
+
+            for (int i = 0; i < 3; i++) //Just to see a definite change in the list.
             {
-                warehouseList.Add(baseMaterialList[baseMaterialInput - 1]);
+                //warehouseList.Add(baseMaterialList[baseMaterialInput - 1]);
+                calledList.Add("Woohoo");//Gddmnit
+                inventoryList.Add("Woohoo2");//wrywntthswrk
+                DBClass.inventoryList.Add("Woohoo");//mthrfkr
             }
         }
 
